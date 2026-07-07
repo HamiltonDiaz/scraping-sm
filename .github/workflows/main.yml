@@ -29,11 +29,17 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: 📝 Crear archivo de configuración desde Secretos
+      env:
+        # 1. Asignamos el secreto a una variable de entorno de Bash
+        CONFIG_CONTENT: ${{ secrets.CONFIG_YAML }}
       run: |
         mkdir -p config
-        echo "${{ secrets.CONFIG_YAML }}" > config/config.yaml
         mkdir -p data
         mkdir -p logs
+        
+        # 2. Usamos la variable de entorno entre comillas dobles
+        # Esto es 100% seguro y respeta todos los caracteres especiales
+        echo "$CONFIG_CONTENT" > config/config.yaml
 
     - name: 🚀 Ejecutar Monitor (Ciclo único)
       run: python main.py --once
