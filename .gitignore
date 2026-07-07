@@ -1,0 +1,36 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+
+# Base de datos
+data/
+*.db
+
+# Logs
+logs/
+*.log
+
+# Configuración con secrets
+config/config.yaml
+.env
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Playwright
+.test-results/
+playwright-report/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
