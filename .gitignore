@@ -4,8 +4,8 @@ env/
 ENV/
 
 # Base de datos
-data/
-*.db
+data/*
+!data/vacantes.db
 
 # Logs
 logs/
